@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from "@angular/common"
+
+@NgModule({
+    imports: [CommonModule]
+})
 
 @Component({
   selector: 'app-home',
@@ -8,12 +13,19 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   clickCounter: number = 0;
+  name: string = '';
   constructor() { }
 
   ngOnInit(): void {
   }
   countClick(){
     this.clickCounter += 1
+  }
+  setClasses(){
+    let myClasses ={
+      active: this.clickCounter > 4,
+      notactive: this.clickCounter < 4,
+    }
   }
 
 }
